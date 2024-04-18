@@ -92,7 +92,7 @@ class CeleryConfig:
 
 CELERY_CONFIG = CeleryConfig
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True}
+FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True}
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"
 # The base URL for the email report hyperlinks.
@@ -113,3 +113,15 @@ try:
     )
 except ImportError:
     logger.info("Using default Docker config...")
+
+ENABLE_CORS = True
+CORS_OPTIONS = {
+    'supports_credentials': True,
+    'allow_headers': ['*'],
+    'resources': ['*'],
+    'origins': ['*']
+}
+
+TALISMAN_ENABLED = False
+HTTP_HEADERS={"X-Frame-Options":"ALLOWALL"}
+WTF_CSRF_ENABLED = False
