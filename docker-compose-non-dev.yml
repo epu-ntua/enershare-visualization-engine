@@ -27,7 +27,7 @@ version: "3.7"
 services:
   redis:
     image: redis:7
-    container_name: superset_cache
+    container_name: superset_cache_new
     restart: unless-stopped
     volumes:
       - redis:/data
