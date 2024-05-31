@@ -32,7 +32,7 @@ services:
     volumes:
       - redis:/data
     networks:
-      - keycloak_network
+      - keycloak_keycloak_network
 
   db:
     env_file: docker/.env-non-dev
@@ -43,7 +43,7 @@ services:
       - db_home:/var/lib/postgresql/data
       - ./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     networks:
-      - keycloak_network
+      - keycloak_keycloak_network
 
   superset:
     env_file: docker/.env-non-dev
@@ -57,7 +57,7 @@ services:
     depends_on: *superset-depends-on
     volumes: *superset-volumes
     networks:
-      - keycloak_network
+      - keycloak_keycloak_network
 
   superset-init:
     image: *superset-image
@@ -70,7 +70,7 @@ services:
     healthcheck:
       disable: true
     networks:
-      - keycloak_network
+      - keycloak_keycloak_network
 
   superset-worker:
     image: *superset-image
@@ -88,7 +88,7 @@ services:
           "celery -A superset.tasks.celery_app:app inspect ping -d celery@$$HOSTNAME",
         ]
     networks:
-      - keycloak_network
+      - keycloak_keycloak_network
 
   superset-worker-beat:
     image: *superset-image
@@ -102,7 +102,7 @@ services:
     healthcheck:
       disable: true
     networks:
-      - keycloak_network
+      - keycloak_keycloak_network
 
 volumes:
   superset_home:
@@ -113,5 +113,5 @@ volumes:
     external: false
 
 networks:
-  keycloak_network:
+  keycloak_keycloak_network:
     external: true
