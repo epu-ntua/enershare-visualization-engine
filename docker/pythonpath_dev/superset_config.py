@@ -131,4 +131,4 @@ APP_ICON = '/static/assets/images/logo_Enershare.png'
 # SUPERSET_ICON = '/static/assets/images/logo_Enershare.png'
 # LOGO_TARGET_PATH = '/'
 LOGO_TOOLTIP = "EnerShare Vizualizations"
-LOGO_RIGHT_TEXT = "EnerShare Vizualizations"
+LOGO_RIGHT_TEXT = "Vizualizations"
